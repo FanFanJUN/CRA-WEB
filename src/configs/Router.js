@@ -19,6 +19,7 @@ const loadable = (pathLoader) => Loadable({
 });
 
 const Test = loadable(() => import('../components/test'));
+const ButtonTest = loadable(() => import('../components/buttontest'));
 
 /**
  * @description 路由配置页
@@ -34,6 +35,7 @@ export default class Routers extends Component {
       <Router basename="/CRA-web">
         <Switch>
           <Route path='/' exact component={Test}/>
+          <Route path='/testbutton' exact component={ButtonTest}/>
         </Switch>
       </Router>
     );

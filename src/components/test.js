@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import { Table, Divider, Tag } from 'antd';
-import {withRouter} from "react-router-dom";
-
 
 const data = [
   {
@@ -102,4 +100,4 @@ class Demo extends Component {
   }
 }
 
-export default withRouter(Demo);
+export default (Demo);
