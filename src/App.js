@@ -1,28 +1,22 @@
+import 'babel-polyfill';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'antd';
+import { connect } from 'react-redux';
+import { Spin, Button } from 'antd';
+import Router from './configs/Router';
 
-function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Button type="primary">测试</Button>
+const App = ({ loadings }) => (
+  <div style={{ background: '#f0f2f5' }}>
+    <div style={{ margin: '0px 0px 0px', background: '#fff' }}>
+      <Spin tip="加载中..." spinning={loadings} style={{ marginTop: '50px' }}>
+        <Router />
+        {/* <Button type="primary">测试</Button> */}
+      </Spin>
     </div>
-  );
-}
+  </div>
+);
 
-export default App;
+const mapStateToProps = state => ({
+  loadings: state.SharedReducer.loadings,
+});
+
+export default connect(mapStateToProps)(App);
