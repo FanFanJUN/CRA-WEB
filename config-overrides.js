@@ -22,12 +22,10 @@ const {
     if (config.entry && config.entry instanceof Array) { // dll
       config.entry = {
         main: config.entry,
-        vendor: ["react", "react-dom", "react-router-dom", "react-redux", "redux", 'redux-thunk', 'jquery',
-        "styled-components", "moment", "react-router"]
+        vendor: ["react", "react-dom", "react-router-dom", "react-redux", "redux", 'redux-thunk', "react-router"]
       }
     } else if (config.entry && typeof config.entry === 'object') {
-      config.entry.vendor = ["react", "react-dom", "react-router-dom", "react-redux", "redux", 'redux-thunk', 'jquery',
-      "styled-components", "moment", "react-router"]
+      config.entry.vendor = ["react", "react-dom", "react-router-dom", "react-redux", "redux", 'redux-thunk', "react-router"]
     }
   
     Object.assign(splitChunksConfig, {

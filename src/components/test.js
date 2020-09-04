@@ -37,11 +37,13 @@ class Demo extends Component {
   constructor() {
     super();
     this.state = {
+      articles: [],
+      pagination: {},
     }
   }
 
   componentDidMount() {
-    // this.getDataSource();
+    this.getDataSource();
   }
   getDataSource = (params)=> {
     request
@@ -54,11 +56,11 @@ class Demo extends Component {
       })
       .then((response) => {
         console.log(response);
-        // const {data: {dataSource, pagination}} = response;
-        // this.setState(()=>({
-        //   articles: dataSource,
-        //   pagination,
-        // }))
+        const {data: {dataSource, pagination}} = response;
+        this.setState(()=>({
+          articles: dataSource,
+          pagination,
+        }))
       })
       .catch(function (error) {
         console.log(error);
@@ -69,42 +71,17 @@ class Demo extends Component {
   }
 
   render() {
+    const { articles } = this.state;
     const columns = [
       {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-        render: text => <a>{text}</a>,
+        title: '文章标题',
+        dataIndex: 'articleTitle',
+        key: 'articleTitle',
       },
       {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-      },
-      {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-      },
-      {
-        title: 'Tags',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: tags => (
-          <span>
-            {tags.map(tag => {
-              let color = tag.length > 5 ? 'geekblue' : 'green';
-              if (tag === 'loser') {
-                color = 'volcano';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
+        title: '文章链接',
+        dataIndex: 'articleHref',
+        key: 'articleHref',
       },
       {
         title: 'Action',
@@ -120,7 +97,7 @@ class Demo extends Component {
     ];
     return (
         <div  style={{textAlign: 'center', padding: '30px 30px'}} >
-           <Table columns={columns} dataSource={data} />
+           <Table columns={columns} dataSource={articles} />
           </div>
          )
   }
