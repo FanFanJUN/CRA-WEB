@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Table, Divider, Tag } from 'antd';
+import request from 'umi-request';
 
 const data = [
   {
@@ -37,6 +38,31 @@ class Demo extends Component {
     super();
     this.state = {
     }
+  }
+
+  componentDidMount() {
+    // this.getDataSource();
+  }
+  getDataSource = (params)=> {
+    request
+      .post('/api/lc/SELECTLISTARTICLE', {
+        data: {
+          pageNum: 1,
+          pageSize: 10,
+          ...params,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        // const {data: {dataSource, pagination}} = response;
+        // this.setState(()=>({
+        //   articles: dataSource,
+        //   pagination,
+        // }))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   componentWillMount() {
