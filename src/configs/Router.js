@@ -34,8 +34,8 @@ export default class Routers extends Component {
     return (
       <Router basename="/CRA-web">
         <Switch>
-          <Route path='/' exact component={Test}/>
-          <Route path='/testbutton' exact component={ButtonTest}/>
+          <Route path='/' exact component={ButtonTest}/>
+          {/* <Route path='/testbutton' exact component={ButtonTest}/> */}
         </Switch>
       </Router>
     );

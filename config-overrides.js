@@ -59,10 +59,16 @@ const {
       '@': path.resolve(__dirname, 'src'),
     }),
     // 按需加载antd 参考 https://3x.ant.design/docs/react/use-with-create-react-app-cn
-    fixBabelImports('import', {
+    // 同时引入antd antd-mobile 名字需要不一样
+    fixBabelImports('antd', {
             libraryName: 'antd',
              libraryDirectory: 'es',
             style: 'css',
+    }),
+    fixBabelImports('antd-mobile', {
+      libraryName: 'antd-mobile',
+       libraryDirectory: 'es',
+      style: 'css',
     }),
     addBabelPlugin( ['import',{
         libraryName: 'antd',
