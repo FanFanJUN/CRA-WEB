@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, BrowserRouter as Router } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import { Spin } from 'antd';
-// import Route from './PrivateRoute';
+import Route from './PrivateRoute';
 
 const Loading = ({ error, pastDelay }) => {
   if (error) {
     return <div>Error! {error}</div>;
   }
   if (pastDelay) {
-    return <Spin spinning/>;
+    return <Spin spinning />;
   }
   return null;
 };
@@ -34,8 +34,8 @@ export default class Routers extends Component {
     return (
       <Router basename="/CRA-web">
         <Switch>
-          <Route path='/' exact component={Test}/>
-          <Route path='/testbutton' exact component={ButtonTest}/>
+          <Route path='/' exact component={Test} />
+          <Route path='/testbutton' exact component={ButtonTest} />
         </Switch>
       </Router>
     );

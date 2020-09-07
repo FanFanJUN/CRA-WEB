@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Spin, Button } from 'antd';
+import { Spin } from 'antd';
 import Router from './configs/Router';
 
 const App = ({ loadings }) => (
