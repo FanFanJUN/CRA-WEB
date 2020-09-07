@@ -23,11 +23,11 @@ export default function (state, action) {
 }
 
 export const show =() => {
-    let loadings = true
+    const loadings = true
     return { type: 'SHOW', loadings }
 }
 
 export const hide =() => {
-    let loadings = false
+    const loadings = false
     return { type: 'HIDE', loadings }
 }

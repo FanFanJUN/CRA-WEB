@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Table, Divider } from 'antd';
 import request from 'umi-request';
+import { connect } from 'react-redux';
+import { show, hide } from '../configs/SharedReducer';
 
 
 /**
@@ -24,6 +26,7 @@ class Demo extends Component {
   }
 
   getDataSource = (params)=> {
+    this.props.show();
     request
       .post('/api/lc/SELECTLISTARTICLE', {
         data: {
@@ -33,15 +36,15 @@ class Demo extends Component {
         },
       })
       .then((response) => {
-        console.log(response);
         const {data: {dataSource, pagination}} = response;
         this.setState(()=>({
           articles: dataSource,
           pagination,
         }))
+        this.props.hide();
       })
       .catch((error) => {
-        console.log(error);
+        this.props.hide();
       });
   }
 
@@ -49,7 +52,7 @@ class Demo extends Component {
   }
 
   render() {
-    const { articles } = this.state;
+    const { articles, pagination } = this.state;
     const columns = [
       {
         title: '文章标题',
@@ -75,10 +78,24 @@ class Demo extends Component {
     ];
     return (
       <div style={{textAlign: 'center', padding: '30px 30px'}}>
-        <Table columns={columns} dataSource={articles} />
+        <Table 
+          columns={columns} 
+          dataSource={articles}
+          pagination={{...pagination}} 
+        />
       </div>
          )
   }
 }
+const mapStateToProps = () => ({});
 
-export default (Demo);
+const mapDispatchToProps = (dispatch) => ({
+    show: () => {
+      dispatch(show());
+    },
+    hide: () => {
+      dispatch(hide());
+    },
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);
