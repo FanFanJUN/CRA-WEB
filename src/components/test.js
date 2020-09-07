@@ -45,6 +45,7 @@ class Demo extends Component {
   componentDidMount() {
     this.getDataSource();
   }
+
   getDataSource = (params)=> {
     request
       .post('/api/lc/SELECTLISTARTICLE', {
@@ -62,7 +63,7 @@ class Demo extends Component {
           pagination,
         }))
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -96,9 +97,9 @@ class Demo extends Component {
       },
     ];
     return (
-        <div  style={{textAlign: 'center', padding: '30px 30px'}} >
-           <Table columns={columns} dataSource={articles} />
-          </div>
+      <div style={{textAlign: 'center', padding: '30px 30px'}}>
+        <Table columns={columns} dataSource={articles} />
+      </div>
          )
   }
 }
