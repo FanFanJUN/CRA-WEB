@@ -3,7 +3,7 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:00:11
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-01-11 17:22:22
+ * @LastEditTime : 2021-01-12 10:29:37
  * @Description  : TODO
  * @FilePath     : /CRA-WEB/src/configs/Router.js
  */
@@ -30,7 +30,7 @@ const loadable = (pathLoader) => Loadable({
 
 const Test = loadable(() => import('../components/test'));
 const ButtonTest = loadable(() => import('../components/buttontest'));
-
+const   MultiCascaderCom= loadable(()=> import('../components/common/MultiCascaderCom'));
 /**
  * @description 路由配置页
  * @author LC@1981824361
@@ -47,6 +47,8 @@ export default class Routers extends Component {
           <Route path='/' exact component={Test} />
           <Route path='/testbutton' exact component={ButtonTest} />
           <Route path='/demo' exact component={Demo1} />
+          <Route path = '/com' exact  component={MultiCascaderCom}/>
+
         </Switch>
       </Router>
     );
