@@ -3,12 +3,14 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:17:46
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-01-11 17:49:46
+ * @LastEditTime : 2021-01-12 17:31:48
  * @Description  : useEffect相关
  * @FilePath     : /CRA-WEB/src/components/ReactHooksTest/Demo1.js
  */
 
-import  React, { useEffect, useState } from "react";
+import  React, { useEffect, useState , Fragment } from "react";
+
+import TestUseEffect from "./TestUseEffect";
 
  const Demo1 = () => {
    const [count, setcount] = useState(0);
@@ -27,7 +29,11 @@ import  React, { useEffect, useState } from "react";
      };
    }, []);
 
-   return <h1>{count}</h1>;
+   return (
+     <Fragment>
+       <h1>{count}</h1>
+       <TestUseEffect />
+     </Fragment>);
  };
 
  export default Demo1;

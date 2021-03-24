@@ -79,3 +79,30 @@ export default class Routers extends Component {
 }
 
 ```
+### 引入对less支持的配置
+[TypeError: this.getOptions is not a function ->less-loader安装的版本过高](https://blog.csdn.net/qq_42430948/article/details/113552673)
+```
+const styleConfig= ()=>(config, env)=>{
+    const oneOf_loc= config.module.rules.findIndex(n=>n.oneOf)
+    config.module.rules[oneOf_loc].oneOf=[    //例如要增加处理less的配置
+        {
+            test: /\.less$/,
+            use: [
+                require.resolve('style-loader'),
+                {
+                    loader: require.resolve('css-loader'),
+                    options: {
+                        importLoaders: 1,
+                    },
+                },
+                {
+                    loader: 'less-loader'
+                }
+            ],
+        },
+        ...config.module.rules[oneOf_loc].oneOf
+    ]
+ 
+    return config;
+}
+```

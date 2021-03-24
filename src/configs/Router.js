@@ -3,7 +3,7 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:00:11
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-01-12 10:29:37
+ * @LastEditTime : 2021-03-24 10:31:14
  * @Description  : TODO
  * @FilePath     : /CRA-WEB/src/configs/Router.js
  */
@@ -13,6 +13,8 @@ import Loadable from 'react-loadable';
 import { Spin } from 'antd';
 import Route from './PrivateRoute';
 import Demo1 from '../components/ReactHooksTest/Demo1';
+import Parent from '../components/ReactHooksTest/ReactMemo/Parent';
+import Test1 from '../components/TestComps/test1';
 
 const Loading = ({ error, pastDelay }) => {
   if (error) {
@@ -48,7 +50,8 @@ export default class Routers extends Component {
           <Route path='/testbutton' exact component={ButtonTest} />
           <Route path='/demo' exact component={Demo1} />
           <Route path = '/com' exact  component={MultiCascaderCom}/>
-
+          <Route path = '/reactMemo' exact  component={Parent}/>
+          <Route path = '/Virtable' exact  component={Test1}/>
         </Switch>
       </Router>
     );
