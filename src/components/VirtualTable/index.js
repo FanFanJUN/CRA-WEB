@@ -6,7 +6,8 @@ import clx from 'classnames';
 import { get, throttle } from 'lodash';
 import PropTypes from 'prop-types';
 import { Resizable } from 'react-resizable';
-import './css/styles.css';
+// import './css/styles.css';
+import 'react-resizable/css/styles.css'
 import './index.css';
 
 class VirtualTable extends React.PureComponent {

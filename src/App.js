@@ -1,3 +1,12 @@
+/*
+ * @Author       : LiCai
+ * @connect      : 1981824361@qq.com
+ * @Date         : 2021-01-11 17:00:11
+ * @LastEditors  : LiCai
+ * @LastEditTime : 2021-03-26 14:24:51
+ * @Description  : TODO
+ * @FilePath     : /CRA-WEB/src/App.js
+ */
 import 'babel-polyfill';
 import React from 'react';
 import { connect } from 'react-redux';

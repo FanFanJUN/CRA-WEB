@@ -1,3 +1,12 @@
+/*
+ * @Author       : LiCai
+ * @connect      : 1981824361@qq.com
+ * @Date         : 2021-01-11 17:00:11
+ * @LastEditors  : LiCai
+ * @LastEditTime : 2021-03-27 11:20:17
+ * @Description  : TODO
+ * @FilePath     : /CRA-WEB/src/components/test.js
+ */
 import React, {Component} from 'react'
 import { Table, Divider } from 'antd';
 import request from 'umi-request';
@@ -21,8 +30,13 @@ class Demo extends Component {
     }
   }
 
+  componentWillMount() {
+    this.props.show();
+  }
+
   componentDidMount() {
-    this.getDataSource();
+    // this.getDataSource();
+    this.props.hide();
   }
 
   getDataSource = (params)=> {
@@ -77,13 +91,11 @@ class Demo extends Component {
       },
     ];
     return (
-      <div style={{textAlign: 'center', padding: '30px 30px'}}>
-        <Table 
-          columns={columns} 
-          dataSource={articles}
-          pagination={{...pagination}} 
-        />
-      </div>
+        <iframe src ='https://tecmp.changhong.com/sei-report/ureport/report?_u=p&_type=1' style={{
+          padding: '10px',
+          width: '100%',
+          height: window.document.documentElement.clientHeight
+        }}/>
          )
   }
 }

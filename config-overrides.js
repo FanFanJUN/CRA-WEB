@@ -3,7 +3,7 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:00:11
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-03-24 11:03:58
+ * @LastEditTime : 2021-03-26 14:28:10
  * @Description  : 配置
  * @FilePath     : /CRA-WEB/config-overrides.js
  */
@@ -102,6 +102,7 @@ const {
     //   libraryName: "antd-multi-cascader",
     //   style: "css",
     // }), 
+    // 按需加载组件代码和样式的 babel 插件 配置
     addBabelPlugin([
       "import",
       {
