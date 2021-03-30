@@ -220,3 +220,41 @@ export default connect(mapStateToProps, mapDispatchToProps)(OrderConfigurationVi
 不要在reducer里再调用dispatch，会爆的
 ```
 ### [redux-devtools-extension调试配置](https://github.com/zalmoxisus/redux-devtools-extension )
+### [redux-thunk](https://zhuanlan.zhihu.com/p/85403048)
+```
+redux-thunk主要的功能就是可以让我们dispatch一个函数，而不只是普通的 Object。
+<div className={'table-box'}>
+                 <StandardTable
+                     handleAdd={this.handleAdd}
+                     res={this.props.res}
+                     handleFrozen={(param) => this.props.dispatch(postDataWa('/waFieldConfig/update',Object.assign(param,{frozen:!param.frozen})))}
+                     loading={this.props.loading}
+                     addConfig={addConfig}
+                     data={this.props.dataSource}
+                     columns={columns}
+                     handleSearch={(queryParam) => this.props.dispatch(fetchDataWa("/waFieldConfig/findByPage",queryParam))}
+                 />
+ </div>
+
+
+ export const postDataWa = (url, params) => dispatch => {
+    dispatch(loadData(true));
+    return httpUtils.postJson(WinBidApproveBaseUrl + url, params).then(res => {
+        dispatch(loadData(false));
+        if (res.status === 'SUCCESS') {
+            console.log(query)
+            dispatch(fetchDataWa(query.url, query.queryParams, query.orderSort));
+            dispatch(messageData(res))
+        } else {
+            message.error(res.message)
+        }
+
+    }).catch(err => {
+        dispatch(loadData(false));
+        dispatch(messageData({status: "请求失败"}))
+    })
+};
+```
+### [Redux 中文文档](https://cn.redux.js.org/)
+### [React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
+### [DvaJS](https://dvajs.com/)
