@@ -13,10 +13,12 @@ const {
     disableEsLint,
     addWebpackAlias,
     fixBabelImports,
-    addBabelPlugin
+    addBabelPlugin,
+    addWebpackPlugin
   } = require("customize-cra");
   const path = require("path");
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
   const addCustomize = () => config => {
     if (process.env.NODE_ENV === 'production') {
@@ -114,4 +116,7 @@ const {
     ]), 
     addCustomize(),
     styleConfig(),   //将自定义配置组合进来
+    addWebpackPlugin(new AntdDayjsWebpackPlugin({preset: 'antdv3'})) 
+    // 使用 Day.js 替换 momentjs 优化打包大小  Ant Design 3.x 的项目中使用本插件 传入{preset: 'antdv3'} 不然会有组件样式 BUG
+    // https://github.com/ant-design/antd-dayjs-webpack-plugin
     );

@@ -24,6 +24,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.10.2",
     "antd-multi-cascader": "^0.0.7",
+    "dayjs": "^1.10.4",
     "http-proxy-middleware": "^1.0.5",
     "less": "^4.1.1",
     "less-loader": "5.0.0",
