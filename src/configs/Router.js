@@ -3,7 +3,7 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:00:11
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-08-03 10:13:56
+ * @LastEditTime : 2021-08-10 11:02:42
  * @Description  : 路由配置
  * @FilePath     : /CRA-WEB/src/configs/Router.js
  */
@@ -15,6 +15,9 @@ import Route from './PrivateRoute';
 import Demo1 from '../components/ReactHooksTest/Demo1';
 import Parent from '../components/ReactHooksTest/ReactMemo/Parent';
 import Test1 from '../components/TestComps/test1';
+import App from '../components/ReactHooksTest/ReactCallback';
+import ParentComponent from '../components/ReactHooksTest/ReactMemoTwo';
+import ParentComponentFroMemo from '../components/ReactHooksTest/ReactUseMemo';
 
 const Loading = ({ error, pastDelay }) => {
   if (error) {
@@ -53,6 +56,9 @@ export default class Routers extends Component {
           <Route path = '/reactMemo' exact  component={Parent}/>
           <Route path = '/Virtable' exact  component={Test1}/>
           <Route path = '/Test' exact  component={Test}/>
+          <Route path = '/usecallback' exact  component={App}/>
+          <Route path = '/testReactMemo' exact  component={ParentComponent}/>
+          <Route path = '/testUseMemo' exact  component={ParentComponentFroMemo}/>
         </Switch>
       </Router>
     );
