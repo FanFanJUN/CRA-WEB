@@ -2,10 +2,12 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "devDependencies": {
     "babel-plugin-import": "^1.13.0",
     "babel-polyfill": "^6.26.0",
     "customize-cra": "^1.0.0",
+    "electron": "^14.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-babel": "^5.3.0",
@@ -48,7 +50,8 @@
     "start": "PORT=8888 react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-start": "electron ."
   },
   "browserslist": {
     "production": [
