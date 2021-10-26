@@ -3,7 +3,7 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-01-11 17:00:11
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-03-26 14:28:10
+ * @LastEditTime : 2021-10-26 14:14:29
  * @Description  : 配置
  * @FilePath     : /CRA-WEB/config-overrides.js
  */
@@ -14,7 +14,8 @@ const {
     addWebpackAlias,
     fixBabelImports,
     addBabelPlugin,
-    addWebpackPlugin
+    addWebpackPlugin,
+    addLessLoader
   } = require("customize-cra");
   const path = require("path");
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -115,8 +116,20 @@ const {
       "antd-import",
     ]), 
     addCustomize(),
-    styleConfig(),   //将自定义配置组合进来
-    addWebpackPlugin(new AntdDayjsWebpackPlugin({preset: 'antdv3'})) 
+    // styleConfig(),   //将自定义配置组合进来
+    addWebpackPlugin(new AntdDayjsWebpackPlugin({preset: 'antdv3'})),
+    // CracoLessPlugin, 
     // 使用 Day.js 替换 momentjs 优化打包大小  Ant Design 3.x 的项目中使用本插件 传入{preset: 'antdv3'} 不然会有组件样式 BUG
     // https://github.com/ant-design/antd-dayjs-webpack-plugin
+    addLessLoader({
+      strictMath: true,
+      noIeCompat: true,
+      modifyVars: {
+        "@primary-color": "#1DA57A", // for example, you use Ant Design to change theme color.
+      },
+      cssLoaderOptions: {}, // .less file used css-loader option, not all CSS file.
+      cssModules: {
+        localIdentName: "[path][name]__[local]--[hash:base64:5]", // if you use CSS Modules, and custom `localIdentName`, default is '[local]--[hash:base64:5]'.
+      },
+    }),
     );

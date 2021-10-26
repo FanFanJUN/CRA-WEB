@@ -3,12 +3,16 @@
  * @connect      : 1981824361@qq.com
  * @Date         : 2021-08-03 10:08:55
  * @LastEditors  : LiCai
- * @LastEditTime : 2021-08-03 10:34:32
+ * @LastEditTime : 2021-10-22 15:18:20
  * @Description  : setState
  * @FilePath     : /CRA-WEB/src/components/TestDemo/index.js
  */
 import React, { useState } from "react";
+import _ from 'lodash';
+import { Button } from "antd";
 
+const MOCK_LIST = [{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 2 }, { x: 1, y: 2, Z: undefined }];
+console.log(_.uniqWith(MOCK_LIST, _.isEqual));
 class Test extends React.PureComponent {
   state = {
     count: 0,
